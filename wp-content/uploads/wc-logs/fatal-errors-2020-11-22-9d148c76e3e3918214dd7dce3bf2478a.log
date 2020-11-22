@@ -1,0 +1,6 @@
+2020-11-22T05:31:57+00:00 CRITICAL Cannot use [] for reading in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 29
+
+2020-11-22T05:31:58+00:00 CRITICAL Cannot use [] for reading in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 29
+
+2020-11-22T06:24:35+00:00 CRITICAL syntax error, unexpected 'echo' (T_ECHO) in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 678
+
