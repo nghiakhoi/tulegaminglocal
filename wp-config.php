@@ -1,4 +1,6 @@
 <?php
+define( 'WP_CACHE', true ); // Added by WP Rocket
+
 /**
  * Cấu hình cơ bản cho WordPress
  *

@@ -5,6 +5,8 @@
  * @package flatsome
  */
 
+
+
 require get_template_directory() . '/inc/init.php';
 
 /**
@@ -34,18 +36,6 @@ if (count($_SESSION["sanphambuildpc"])>=0) {
   
  }
 
-
-function my_deregister_heartbeat() {
-    global $pagenow;
-
-    if ( 'post.php' != $pagenow && 'post-new.php' != $pagenow ) {
-         wp_deregister_script('heartbeat');
-         wp_register_script('heartbeat', false);
-     }
-}
-       
-		
-add_action( 'admin_enqueue_scripts', 'my_deregister_heartbeat' );
 
 
 add_action( 'wp_ajax_loadpost', 'loadpost_init' );
