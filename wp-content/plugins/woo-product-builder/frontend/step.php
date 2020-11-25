@@ -236,7 +236,7 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
           <div class="clear"></div>
           <div class="separator"></div>
           
-          <p style="float:right; font-size:20px; margin-top:10px;">Chi phí dự tính: <?php //echo '<pre>' . print_r($_SESSION) . '</pre>'; ?> <span class="js-config-summary" style="color: #d00; font-weight: bold"><span class="total-price-config">0</span> đ <p> </p></span> </p><div class="clear"></div>
+          <p style="float:right; font-size:20px; margin-top:10px;">Chi phí dự tính: <?php echo '<pre>' . print_r($_SESSION) . '</pre>'; ?> <span class="js-config-summary" style="color: #d00; font-weight: bold"><span class="total-price-config">0</span> đ <p> </p></span> </p><div class="clear"></div>
 			<div class="js-buildpc-promotion-content"></div>
           <div class="clear"></div>
           <div class="list-drive" id="js-buildpc-layout">
@@ -424,7 +424,8 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
         objBuildPCVisual = BuildPCVisual(objBuildPC);
         
         //show clean layout
-        objBuildPCVisual.showLayout(category_config);
+		objBuildPCVisual.showLayout(category_config);
+		console.log(category_config);
         
 		jQuery(".js-buildpc-promotion-content").html('');
   
@@ -698,7 +699,7 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
 		
 		wp_enqueue_script( 'woo-product-builder3', VI_WPRODUCTBUILDER_F_JS . 'hurastore.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );
 		//wp_enqueue_script( 'woo-product-builder3', VI_WPRODUCTBUILDER_F_JS . 'hurasoft.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );
-		// wp_enqueue_script( 'woo-product-builder3', VI_WPRODUCTBUILDER_F_JS . 'common.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );
+		wp_enqueue_script( 'woo-product-builder4', VI_WPRODUCTBUILDER_F_JS . 'common.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );
 		// wp_enqueue_script( 'woo-product-builder4', VI_WPRODUCTBUILDER_F_JS . 'hurasoft.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );
 		// wp_enqueue_script( 'woo-product-builder5', VI_WPRODUCTBUILDER_F_JS . 'hurastore.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );
 		// wp_enqueue_script( 'woo-product-builder6', VI_WPRODUCTBUILDER_F_JS . 'webworker.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );

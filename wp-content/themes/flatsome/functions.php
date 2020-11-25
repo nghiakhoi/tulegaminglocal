@@ -28,13 +28,13 @@ if(!isset($_SESSION["sanphambuildpc"])){
     $_SESSION["sanphambuildpc"] = array();
 }
 
-if (count($_SESSION["sanphambuildpc"])>=0) {
-    session_start();
-    //session_destroy();
-    $_SESSION["sanphambuildpc"] = array();
-    //session_unset($_SESSION["sanphambuildpc"]);
+// if (count($_SESSION["sanphambuildpc"])>=0) {
+//     session_start();
+//     //session_destroy();
+//     $_SESSION["sanphambuildpc"] = array();
+//     //session_unset($_SESSION["sanphambuildpc"]);
   
- }
+//  }
 
 
 
@@ -53,12 +53,7 @@ function loadpost_init() {
             'terms'      => $cat_id,
         ) )
     ) );
-    $_SESSION['sanphambuildpc'][] = $cat_id;
-    for($i;$i<count($_SESSION['sanphambuildpc']);$i++){
-            if($_SESSION['sanphambuildpc'][$i]==$cat_id){
-                $_SESSION['sanphambuildpc'][$i]=$cat_id;
-            }
-        }
+    
 
     ?>
 
@@ -238,16 +233,58 @@ function getdanhmuc_init() {
 
     }
 
+
+add_action( 'wp_ajax_deleteitem', 'deleteitem' );
+add_action( 'wp_ajax_nopriv_deleteitem', 'deleteitem' );
+function deleteitem() {
+    $id = isset($_POST['id']) ? (int)$_POST['id'] : 0;
+    $cat_id = isset($_POST['cat_id']) ? (int)$_POST['cat_id'] : 0;
+
+    for($i=0;$i<count($_SESSION['sanphambuildpc']);$i++){
+        if($_SESSION['sanphambuildpc'][$i]['cat_id']==$cat_id){
+            unset($_SESSION['sanphambuildpc'][$i]);
+        }
+    }
+
+    echo 'ok';
+    die(); 
+
+    ?>
+
+
+    <?php
+    //die();//bắt buộc phải có khi kết thúc
+
+    }
+
+    
+
 add_action( 'wp_ajax_example_ajax_request', 'example_ajax_request' );
 add_action( 'wp_ajax_nopriv_example_ajax_request', 'example_ajax_request' );
 function example_ajax_request() {
     if ( isset($_GET) ) {
        if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) { 
         
-        $cat_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-        $product_info = wc_get_product( $cat_id );
+        $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+        $cat_id = isset($_GET['cat_id']) ? (int)$_GET['cat_id'] : 0;
+        $product_info = wc_get_product( $id );
+
+        //$_SESSION['sanphambuildpc'][] = $id;
+        $replaced_idsp = false;
+        for($i=0;$i<count($_SESSION['sanphambuildpc']);$i++){
+            if($_SESSION['sanphambuildpc'][$i]['cat_id']==$cat_id){
+                $_SESSION['sanphambuildpc'][$i]['id']=$id;
+                $replaced_idsp=true;
+            }
+        }
     
-            $_SESSION['sanphambuildpc'][] = $product_info->get_id();
+        if($replaced_idsp==false){
+            $_SESSION['sanphambuildpc'][] = array('cat_id'=>$cat_id,
+                                                'id'=>$product_info->get_id(),
+                                                 'sl'=>1                       
+                                                    );
+        }
+            
 
            //$fruit = $_GET['id'];
            //echo $fruit;
@@ -443,6 +480,64 @@ function example_ajax_request() {
        die();
     }
    }
+
+
+   add_action( 'wp_ajax_getinfosaved', 'getinfosaved_init' );
+   add_action( 'wp_ajax_nopriv_getinfosaved', 'getinfosaved_init' );
+   function getinfosaved_init() {
+       if ( isset($_POST) ) {
+          if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) { 
+           
+           
+              echo '{
+                "142": {
+                    "info": {
+                        "id": "30",
+                        "name": "Bo m\u1ea1ch ch\u1ee7"
+                    },
+                    "items": [
+                        {
+                            "id": "54008",
+                            "name": "Mainboard MSI B460M-A PRO",
+                            "sku": "MBMS396",
+                            "image": "https:\/\/hanoicomputercdn.com\/media\/product\/75_54008_msi_b460m_a_pro.jpg",
+                            "price": "1999000",
+                            "url": "\/mainboard-msi-b460m-a-pro",
+                            "stock": "15",
+                            "quantity": "1",
+                            "price_sum": "1.999.000",
+                            "warranty": "36 Th\u00e1ng",
+                            "note": ""
+                        }
+                    ]
+                },
+                "143": {
+                    "info": {
+                        "id": "32",
+                        "name": "RAM"
+                    },
+                    "items": [
+                        {
+                            "id": "56324",
+                            "name": "Ram Desktop AVERXIR 2C2C - Core2 RGB (AVD4UZ332001616G-2C2C) 32GB (2x16GB) DDR4 3200Mhz",
+                            "sku": "RAAV180",
+                            "image": "https:\/\/hanoicomputercdn.com\/media\/product\/75_56324_ram_desktop_averxir_2c2c_core2_rgb_avd4uz332001616g_2c2c_1.jpg",
+                            "price": "3599000",
+                            "url": "\/ram-desktop-averxir-2c2c-core2-rgb-avd4uz332001616g-2c2c",
+                            "stock": "17",
+                            "quantity": "1",
+                            "price_sum": "3.599.000",
+                            "warranty": "36 Th\u00e1ng",
+                            "note": ""
+                        }
+                    ]
+                }
+            }';
+              wp_die();
+          }
+        
+       }
+      }
 
   
 

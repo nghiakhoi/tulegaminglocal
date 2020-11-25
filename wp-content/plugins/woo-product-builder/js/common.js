@@ -20,8 +20,9 @@ function saveUserInfo(payload) {
         "tax_code" : "",
         "ship_instruction" : "",
     }*/
-    var url = "/ajax/user.php";
-    $.post(url, { action: "save-personal-info", info: payload}, function (result) {
+    var url = "/wp-admin/ajax-admin";
+    $.post(url, { action: "getinfosaved", info: payload}, function (result) {
+        alert('hahaha');
         console.info("save-info = " + result);
     })
 }
@@ -216,8 +217,8 @@ var ProductAddon = {
     //search for addon selected
     checkSelect : function(productId) {
         var self = this;
-        $(".product-addon-"+productId).each(function() {
-            if($(this).prop('checked')) {
+        jQuery(".product-addon-"+productId).each(function() {
+            if(jQuery(this).prop('checked')) {
                 var selected_addon = parseInt(this.value);
                 if(selected_addon > 0) self.addCart(productId, selected_addon);
             }
@@ -311,7 +312,7 @@ function countShoppingCart(name){
         }
 
         if(cart_holder_total != 'underfined' && cart_holder_total != null){
-            if($("#total_shopping_cart_store").length > 0) {
+            if(jQuery("#total_shopping_cart_store").length > 0) {
                 //count total value
                 var total_value = 0, item_content, item_detail, item_type, pro_id, pro_quantity, unit_price;
                 for(var i=0;i<ca.length;i++){
@@ -366,7 +367,7 @@ function addToShoppingCartStop(item_type, sellid, quantity, unit_price, holder_i
     var element =  document.getElementById(holder_id);
     if (typeof(element) != 'undefined' && element != null)
     {
-        $("#"+holder_id).html("Đã thêm vào giỏ hàng");
+        jQuery("#"+holder_id).html("Đã thêm vào giỏ hàng");
     }
 }
 
@@ -424,7 +425,7 @@ function updatePrice(item_type, id, new_quantity){
         alert('Vui lòng nhập số > 0');
         //reset quantity
         new_quantity = 1;
-        $("#quantity_"+item_type+'_'+id).val(new_quantity);
+        jQuery("#quantity_"+item_type+'_'+id).val(new_quantity);
     }
     /*	else{
      unit_price = getItemUnitPrice(id);
@@ -436,7 +437,7 @@ function updatePrice(item_type, id, new_quantity){
 
     //01-10-2013
     //check if user is using coupon, recount
-    var coupon_code = $('#discount_code').val();
+    var coupon_code = jQuery('#discount_code').val();
     if(coupon_code.length > 0) {
         var cart_total = document.getElementById('total_value').innerHTML;
         while(cart_total.indexOf(".") > 0){
@@ -650,7 +651,7 @@ function user_like_content(item_id, content, data_holder){
         }else if(data === 'error') {
             alert("Bạn đã thực hiện rồi");
         }else{
-            $("#"+data_holder).html(data);
+            jQuery("#"+data_holder).html(data);
             //alert("Cảm ơn bạn");
         }
     });
@@ -686,14 +687,14 @@ function user_vote_review(review_id, vote){
 //function apply shopping cart discount
 function check_discount(discount_type, discount_code, cart_value){
     if(discount_type == 'coupon') {
-        $("#checking_discount_code").html("vui lòng đợi...");
+        jQuery("#checking_discount_code").html("vui lòng đợi...");
         $.post("ajax/check_coupon.php", {code : discount_code, order : cart_value  }, function(data){
             //alert(data);
             var result =  jQuery.parseJSON(data);
             if(result.error != '') {
-                $("#checking_discount_code").html(result.error);
+                jQuery("#checking_discount_code").html(result.error);
                 //remove this code
-                $("#discount_code").val('');
+                jQuery("#discount_code").val('');
             }else{
 
                 var discount_mssg = "";
@@ -711,13 +712,13 @@ function check_discount(discount_type, discount_code, cart_value){
                     case "cash":
                         discount_mssg = "Giảm " + writeStringToPrice(result.content + '') + " đ";
                         new_cart_value = parseInt(current_cart_total) - parseInt(result.content);
-                        $("#total_value").html(writeStringToPrice(new_cart_value + ''));
+                        jQuery("#total_value").html(writeStringToPrice(new_cart_value + ''));
                         break;
                     case "priceoff":
                         discount_mssg = "Giảm " + result.content + '%';
                         new_cart_value = parseInt(current_cart_total) * parseInt(100 - result.content) / 100;
                         //alert(new_cart_value);
-                        $("#total_value").html(writeStringToPrice(new_cart_value + ''));
+                        jQuery("#total_value").html(writeStringToPrice(new_cart_value + ''));
                         break;
                     case "other":
                         discount_mssg = result.content;
@@ -725,11 +726,11 @@ function check_discount(discount_type, discount_code, cart_value){
                 }
 
                 //alert(result.type + " = "+result.content);
-                $("#checking_discount_code").html(result.title + ": "  + discount_mssg);
-                $("#discount_message").html(result.title + ": "  + discount_mssg);
+                jQuery("#checking_discount_code").html(result.title + ": "  + discount_mssg);
+                jQuery("#discount_message").html(result.title + ": "  + discount_mssg);
             }
 
-            //$("#discount_code_full").val(data);
+            //jQuery("#discount_code_full").val(data);
 
         });
     }
@@ -737,18 +738,18 @@ function check_discount(discount_type, discount_code, cart_value){
 
 function loadAjaxContent(holder_id, content_url){
     //check animate
-    if($("#anchor_top").length > 0){
-        var target_offset = $("#anchor_top").offset();
+    if(jQuery("#anchor_top").length > 0){
+        var target_offset = jQuery("#anchor_top").offset();
         var target_top = target_offset.top;
-        $('html, body').animate({scrollTop:target_top}, 500);
+        jQuery('html, body').animate({scrollTop:target_top}, 500);
     }
-    $("#"+holder_id).load(content_url);
+    jQuery("#"+holder_id).load(content_url);
 }
 
 //change captcha image
 function change_captcha(holder){
     var unixtime_ms = new Date().getTime();
-    $("#"+holder).attr("src","/includes/captcha/captcha.php?v="+unixtime_ms);
+    jQuery("#"+holder).attr("src","/includes/captcha/captcha.php?v="+unixtime_ms);
 }
 
 //allow customer to cancel order just ordered by yet processed
@@ -797,6 +798,6 @@ function user_vote_review(review_id, vote){
 if (window.top !== window.self) window.top.location.replace(window.self.location.href);
 
 //load this when page load
-$(function(){
+jQuery(function(){
     countShoppingCart('shopping_cart_store');
 });

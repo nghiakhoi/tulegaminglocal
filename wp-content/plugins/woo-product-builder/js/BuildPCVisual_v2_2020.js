@@ -102,7 +102,19 @@ var BuildPCVisual = function (_objBuildPC) {
                 console.log("remove product = " + product_id);
                 //change config
                 objBuildPC.removeItem(category_id, product_id, function (category_id, product_id) {
-                    jQuery("#js-selected-item-" + category_id).html('');
+                    //jQuery("#js-selected-item-" + category_id).html('');
+                    jQuery.post(ACTION_URL, {
+                        action     : "deleteitem",
+                        id : product_id,
+                        cat_id: category_id
+                    } , function (data) {
+                        if(data=="ok"){
+                            jQuery("#js-selected-item-" + category_id).html('');
+                            alert('ok');
+                        }
+                        
+                       
+                    });
                     //then save
                     //show summary
                 displaySelectedConfigSummary();
@@ -327,7 +339,8 @@ var BuildPCVisual = function (_objBuildPC) {
         jQuery.get(ACTION_URL, {
             action     : "example_ajax_request",
             action_type : "basic-info",
-            id : product_id
+            id : product_id,
+            cat_id: category_info.id
         } , function (data) {
             var product_info = JSON.parse(data);
             var item_info = {
