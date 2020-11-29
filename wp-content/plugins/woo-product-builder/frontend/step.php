@@ -329,20 +329,16 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
 </div>
 
 <script>
-    //pc config
+	//pc config
+
     var category_config = [
 
-        <?php $args = array( 
- 'hide_empty' => 0,
- 'taxonomy' => 'product_cat',
- 'post_type' => 'product',
- 'orderby' => id,
- ); 
- $cates = get_categories( $args ); 
+		<?php 
+		$cates = wp_get_nav_menu_items('BuildPC');
  foreach ( $cates as $cate ) { ?>
     {
-        "id": <?php echo $cate->term_id; ?>,
-        "name": "<?php echo $cate->name ?>"
+        "id": <?php echo $cate->object_id; ?>,
+        "name": "<?php echo $cate->title ?>"
     },    
 <?php } ?>
 

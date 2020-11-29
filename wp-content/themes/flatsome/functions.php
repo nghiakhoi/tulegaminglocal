@@ -2,7 +2,7 @@
 /**
  * Flatsome functions and definitions
  *
- * @package flatsome
+ * @package
  */
 
 
@@ -487,57 +487,69 @@ function example_ajax_request() {
    function getinfosaved_init() {
        if ( isset($_POST) ) {
           if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) { 
-           
-           
-              echo '{
-                "142": {
-                    "info": {
-                        "id": "30",
-                        "name": "Bo m\u1ea1ch ch\u1ee7"
-                    },
-                    "items": [
-                        {
-                            "id": "54008",
-                            "name": "Mainboard MSI B460M-A PRO",
-                            "sku": "MBMS396",
-                            "image": "https:\/\/hanoicomputercdn.com\/media\/product\/75_54008_msi_b460m_a_pro.jpg",
-                            "price": "1999000",
-                            "url": "\/mainboard-msi-b460m-a-pro",
-                            "stock": "15",
-                            "quantity": "1",
-                            "price_sum": "1.999.000",
-                            "warranty": "36 Th\u00e1ng",
-                            "note": ""
-                        }
-                    ]
-                },
-                "143": {
-                    "info": {
-                        "id": "32",
-                        "name": "RAM"
-                    },
-                    "items": [
-                        {
-                            "id": "56324",
-                            "name": "Ram Desktop AVERXIR 2C2C - Core2 RGB (AVD4UZ332001616G-2C2C) 32GB (2x16GB) DDR4 3200Mhz",
-                            "sku": "RAAV180",
-                            "image": "https:\/\/hanoicomputercdn.com\/media\/product\/75_56324_ram_desktop_averxir_2c2c_core2_rgb_avd4uz332001616g_2c2c_1.jpg",
-                            "price": "3599000",
-                            "url": "\/ram-desktop-averxir-2c2c-core2-rgb-avd4uz332001616g-2c2c",
-                            "stock": "17",
-                            "quantity": "1",
-                            "price_sum": "3.599.000",
-                            "warranty": "36 Th\u00e1ng",
-                            "note": ""
-                        }
-                    ]
+            
+        if(count($_SESSION['sanphambuildpc'])>0){
+            //$array_product="";
+            $cate = wp_get_nav_menu_items('BuildPC');
+            $array_product=array();
+            for($i=0;$i<count($cate);$i++){
+
+                for($j=0;$j<count($_SESSION['sanphambuildpc']);$j++){
+                    if($_SESSION['sanphambuildpc'][$j]['cat_id']==$cate[$i]->object_id){
+                        $product_info = wc_get_product($_SESSION['sanphambuildpc'][$j]['id']);
+                        $image_id  = $product_info->get_image_id();
+                        $image_url = wp_get_attachment_image_url( $image_id, 'full' );
+                        $product_item['info']=array (
+                            'id' => $cate[$i]->object_id,
+                            'name' => $cate[$i]->title,
+                        );
+                        $product_item['items']=[
+                                array (
+                                  'id' => $product_info->get_id(),
+                                  'name' => $product_info->get_name(),
+                                  'sku' => $product_info->get_sku(),
+                                  'image' => $image_url,
+                                  'price' => $product_info->get_price(),
+                                  'url' => $product_info->get_permalink(),
+                                  'stock' => '1',
+                                  'quantity' => '1',
+                                  'price_sum' =>  number_format( $product_info->get_price() , 0, '', '.'),
+                                  'warranty' => '30 Tháng',
+                                  'note' => '',
+                                ),
+                            ];
+                        
+                            
+                           
+                        ;
+                        $array_product[$cate[$i]->object_id]=$product_item;
+                        //array_push($array_product,$product_item);
+
+                        
+                    }
+                    
+
+                    }
                 }
-            }';
-              wp_die();
+            //print_r( $cate);
+            //$json = $array_product;
+            //echo $array_product;
+            //$out = array_values($array_product);
+            //$someArray = json_encode($out, true);
+            //print_r($someArray); 
+            echo json_encode($array_product);
+            }else{
+                echo "[]";
+            }
+               
+
+        }
+
+        wp_die();
           }
+          
+        }
         
-       }
-      }
 
   
 

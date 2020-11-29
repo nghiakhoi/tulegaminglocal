@@ -21,8 +21,8 @@ function saveUserInfo(payload) {
         "ship_instruction" : "",
     }*/
     var url = "/wp-admin/ajax-admin";
-    $.post(url, { action: "getinfosaved", info: payload}, function (result) {
-        alert('hahaha');
+    $.post(url, { action: "getinfosaved1", info: payload}, function (result) {
+        //alert('hahaha');
         console.info("save-info = " + result);
     })
 }
