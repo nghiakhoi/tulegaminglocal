@@ -236,7 +236,7 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
           <div class="clear"></div>
           <div class="separator"></div>
           
-          <p style="float:right; font-size:20px; margin-top:10px;">Chi phí dự tính: <?php echo '<pre>' . print_r($_SESSION) . '</pre>'; ?> <span class="js-config-summary" style="color: #d00; font-weight: bold"><span class="total-price-config">0</span> đ <p> </p></span> </p><div class="clear"></div>
+          <p style="float:right; font-size:20px; margin-top:10px;">Chi phí dự tính: <?php echo '<pre>' . print_r($_SESSION['sanphambuildpc']) . '</pre>'; ?> <span class="js-config-summary" style="color: #d00; font-weight: bold"><span class="total-price-config">0</span> đ <p> </p></span> </p><div class="clear"></div>
 			<div class="js-buildpc-promotion-content"></div>
           <div class="clear"></div>
           <div class="list-drive" id="js-buildpc-layout">

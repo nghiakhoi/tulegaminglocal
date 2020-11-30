@@ -245,6 +245,33 @@ function deleteitem() {
             unset($_SESSION['sanphambuildpc'][$i]);
         }
     }
+    $_SESSION['sanphambuildpc'] = array_values($_SESSION['sanphambuildpc']);
+
+    echo 'ok';
+    die(); 
+
+    ?>
+
+
+    <?php
+    //die();//bắt buộc phải có khi kết thúc
+
+    }
+
+add_action( 'wp_ajax_updateitem', 'updateitem' );
+add_action( 'wp_ajax_nopriv_updateitem', 'updateitem' );
+function updateitem() {
+    //$id = isset($_POST['id']) ? (int)$_POST['id'] : 0;
+    $cat_id = isset($_POST['cat_id']) ? (int)$_POST['cat_id'] : 0;
+    $quantity = isset($_POST['quantity']) ? (int)$_POST['quantity'] : 0;
+
+    for($i=0;$i<count($_SESSION['sanphambuildpc']);$i++){
+        if($_SESSION['sanphambuildpc'][$i]['cat_id']==$cat_id){
+            //unset($_SESSION['sanphambuildpc'][$i]);
+            $_SESSION['sanphambuildpc'][$i]['sl']=$quantity;
+        }
+    }
+    $_SESSION['sanphambuildpc'] = array_values($_SESSION['sanphambuildpc']);
 
     echo 'ok';
     die(); 
@@ -274,6 +301,7 @@ function example_ajax_request() {
         for($i=0;$i<count($_SESSION['sanphambuildpc']);$i++){
             if($_SESSION['sanphambuildpc'][$i]['cat_id']==$cat_id){
                 $_SESSION['sanphambuildpc'][$i]['id']=$id;
+                $_SESSION['sanphambuildpc'][$i]['sl']=1;
                 $replaced_idsp=true;
             }
         }
@@ -512,7 +540,7 @@ function example_ajax_request() {
                                   'price' => $product_info->get_price(),
                                   'url' => $product_info->get_permalink(),
                                   'stock' => '1',
-                                  'quantity' => '1',
+                                  'quantity' => $_SESSION['sanphambuildpc'][$j]['sl'],
                                   'price_sum' =>  number_format( $product_info->get_price() , 0, '', '.'),
                                   'warranty' => '30 Tháng',
                                   'note' => '',

@@ -88,6 +88,18 @@ var BuildPCVisual = function (_objBuildPC) {
                 //show new sum
                 $div_container.find(".sum_price").html( writeStringToPrice(parseInt(new_quantity) * parseInt(product_price)));
 
+                jQuery.post(ACTION_URL, {
+                    action     : "updateitem",
+                    quantity : new_quantity,
+                    cat_id: category_id
+                } , function (data) {
+                    if(data=="ok"){
+                        //jQuery("#js-selected-item-" + category_id).html('');
+                    }
+                    
+                   
+                });
+
                 //show summary
                 displaySelectedConfigSummary();
 
@@ -110,7 +122,6 @@ var BuildPCVisual = function (_objBuildPC) {
                     } , function (data) {
                         if(data=="ok"){
                             jQuery("#js-selected-item-" + category_id).html('');
-                            alert('ok');
                         }
                         
                        
