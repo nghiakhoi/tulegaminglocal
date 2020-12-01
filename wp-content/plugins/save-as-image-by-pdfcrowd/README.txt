@@ -1,0 +1,201 @@
+=== Save as Image plugin by Pdfcrowd ===
+Contributors: Pdfcrowd
+Tags: image, print, save, page, save to image, save as image, convert to image, image print, image button, image widget, image plugin, pdfcrowd, html, page as image, png, jpg, jpeg, gif, bmp, webp, tiff
+Requires PHP: 5.1
+Requires at least: 4.0
+Tested up to: 5.5
+Stable tag: trunk
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Let your visitors save pages as an image in a single click. Reliable, fast and highly customizable.
+
+== Description ==
+
+The Save as Image plugin is easy to use. Just install the plugin and activate it. The plugin puts a "Save to Image" button in your web pages. The button enables to save the current web page (the default), or only a part of the page or an arbitrary page in one click.
+
+The plugin internally uses the Pdfcrowd API web service. The Pdfcrowd API is a professional solution for converting web pages and HTML documents to PDF and various image formats.
+
+
+The plugin is highly customizable, you can:
+* customize the button style, text and icon
+* choose between the "screen" and "print" layout (CSS @media)
+* convert password-protected pages
+* convert pages with data in forms
+* customize image format, image size, scale factor, run custom JavaScript, and many more ...
+
+You can customize the plugin on the Settings page.
+
+
+**Shortcodes**
+
+The **[save_as_image_pdfcrowd]** shortcode places a button in the web page. Clicking the button downloads the page as an image.
+
+The enclosing **[block_save_as_image_pdfcrowd]** shortcode downloads the enclosed part of the page as an image.
+
+The shortcodes can customize the button style and the conversion output by overriding the settings specified on the plugin Settings page.
+
+For example, to change the page size to Letter and create a red button use:
+
+`[save_as_image_pdfcrowd page_size='letter' button_background_color='red']`
+
+
+**Create Button in PHP**
+
+The conversion button can be created directly in your PHP code with the **create_save_as_image_pdfcrowd_button**($options = array()) function.
+
+`<?php
+
+create_save_as_image_pdfcrowd_button(array(
+    'page_size' => 'letter',
+    'button_text' => 'Save as Letter'));
+
+?>`
+
+
+**Button CSS Customization**
+
+The button style can be customized also by setting CSS properties on the save-as-image-pdfcrowd-button-wrap or save-as-image-pdfcrowd-button classes.
+
+`.save-as-image-pdfcrowd-button {
+    font-family: Georgia;
+}`
+
+
+**Output**
+
+The output image can be either downloaded or opened directly in the browser. This can be configured with the "Button Click Action" option.
+
+The output file name is generated automatically or can be specified in custom options, e.g.
+
+`[save_as_image_pdfcrowd output_name='my-page.png' button_background_color='red']`
+
+
+**Support**
+
+Please contact us on support@pdfcrowd.com us if you need any help.
+We recommend that you check our [FAQ](https://pdfcrowd.com/faq/). It contains answers to many common questions.
+
+Pdfcrowd [API playground](https://pdfcrowd.com/playground/) may help you to configure the plugin, create a [shortcode](https://pdfcrowd.com/playground/html-to-image/?lang=wf-wpscode) or a [function call](https://pdfcrowd.com/playground/html-to-image/?lang=wf-wpfunc).
+
+== Installation ==
+
+1. Go to your WordPress backend, search for "Save as Image by Pdfcrowd" and then click "Install". Or you can download the save-as-image-pdfcrowd.zip file and unzip it.
+2. If you downloaded the zip, upload the save-as-image-pdfcrowd folder into wp-content/plugins folder.
+3. Activate the plugin.
+
+== Pdfcrowd License ==
+
+The plugin does not require any registrations. It is fully functional, the free version just adds a watermark over the content.
+
+A valid Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) removes the demo watermark. To enable the API license on the plugin, just enter your Pdfcrowd username and the API key in the plugin settings in the Pdfcrowd API Credentials tab.
+
+A single Pdfcrowd [API license](https://pdfcrowd.com/user/account/api2-license/?ref=wordpress) can be used for both our plugins on multiple WordPress websites. Moreover, the API license enables you to use Pdfcrowd [conversion API](https://pdfcrowd.com/doc/api/) directly.
+
+== Frequently Asked Questions ==
+
+= Can I convert password-protected pages? =
+
+Yes, set "Conversion Mode" to "upload", "content" or "development" on the Settings|Behavior page or enable HTTP Basic Authentication for your site or choose other methods for accessing your pages (Client Certificate, Custom Cookies, Custom HTTP Headers).
+
+= Can I convert my localhost or dynamic pages? =
+
+Yes, set "Conversion Mode" to "upload", "content" or "development" on the Settings|Behavior page.
+
+= Can I convert data entered into a form? =
+
+Yes, set "Conversion Mode" to "content" on the Settings|Behavior page.
+
+= Are my data safe? =
+
+Yes, Pdfcrowd is GDPR compliant. All data for the conversion are kept only for the time necessary to efficiently process the conversion and then permanently deleted.
+
+= My page is not printed correctly. What should I do? =
+
+The first thing to try is to play with the following configuration settings: "Conversion Mode", "Viewport Width", "Wiewport Height", "Rendering Mode" and "Smart Scaling Mode". If it does not help, contact us at support@pdfcrowd.com.
+
+= How to exclude some parts of a web page? =
+
+Add "pdfcrowd-remove" or "pdfcrowd-hide" CSS class to the HTML elements you want to remove or hide. Another option is to remove them using custom Javascript code set in the "Custom Javascript" option.
+
+= Can you help me? =
+
+Yes, Pdfcrowd support (support@pdfcrowd.com) is more than happy to help you with any issue you may have.
+
+== Screenshots ==
+
+1. Default button appearance.
+2. Sample of settings.
+
+== Changelog ==
+
+= 1.11.0 =
+* New "Button Text Translation" option - allows to use translation for the button text.
+
+= 1.10.0 =
+* New "Change on Mouse Over" option - highlights the button when the mouse pointer is hovering over it.
+* Fixed issue with external link to the plugin settings tab.
+
+= 1.9.1 =
+* Fixed issue with missing assets in the plugin setup.
+
+= 1.9.0 =
+* New "Conversion in Progress Indicator" option - a customizable visual indicator is shown when the conversion is in progress.
+* Fixed issue with the button appearence in MS Edge.
+
+= 1.8.1 =
+* Improved the converted page URL detection.
+
+= 1.8.0 =
+* Fixed the issue with the converted page URL when some third party WP plugins are used.
+
+= 1.7.0 =
+* New value "open an image in a new browser tab" for the "Button Click Action" option.
+* Minor change of descriptions for values in the "Button Click Action" option.
+
+= 1.6.0 =
+* Added support for parameters in the page URL.
+* Added support for missing protocol in links.
+* Added function pdfcrowd_save_as_image($options). It's useful for acccessing Pdfcrowd API directly.
+
+= 1.5.0 =
+* Added HTML template rendering with custom JSON, XML, YAML and CSV data.
+
+= 1.4.1 =
+* Button to reset settings to default values was added to the plugin settings page.
+* Fix demo license usage.
+
+= 1.4.0 =
+* Added a convertion mode "content" to convert the current HTML contents shown in the browser.
+* Minified JavaScript files for faster page load.
+
+= 1.3.0 =
+* Added an option to convert local file by the shortcode or the function call.
+* Fix of multiline shortcode parameters.
+
+= 1.2.2 =
+* Refactor description in the plugin settings.
+* Added a flag describing the button creation mode.
+
+= 1.2.1 =
+* Fix of conversion auto mode.
+
+= 1.2.0 =
+* New value "auto" for the Conversion Mode.
+* New option "Auto Use Cookies" for an automatic use of the current cookies for the conversion.
+* Avoid double-click on the conversion button.
+* Better error message for error code 452.
+
+= 1.1.0 =
+* New option "Custom HTML" which allows to specify custom HTML for the conversion button.
+* New option "Image Created Callback" which allows to manipulate with the output file.
+* New option "Conversion Mode". The "Run in DEV Mode" option was removed, you can use the "Conversion Mode" values "url" or "development" instead.
+* New options: Page Watermark Url, Multipage Watermark Url, Page Background Url, Multipage Background Url.
+* Improved conversion of password-protected pages.
+* Admin settings reordered.
+
+= 1.0.1 =
+* Fixed issue with missing input when create_save_as_image_pdfcrowd_button is used.
+
+= 1.0.0 =
+* Initial version

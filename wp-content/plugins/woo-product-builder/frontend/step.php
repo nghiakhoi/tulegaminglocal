@@ -558,10 +558,10 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
     }
 
     function downloadImage() {
-        var export_url = "/ajax/export_download.php?content_type="+SAVE_BUILD_ID+"&u=" + Hura.User.getUserId() + "&file_type=";
-        var url = "https://www.hanoicomputer.vn" + export_url + 'image';
-        var tool = "/tools/screenshot/screenshot.php?url=";
-        window.open(tool + encodeURIComponent(url),'_blank');
+        //var export_url = "/ajax/export_download.php?content_type="+SAVE_BUILD_ID+"&u=" + Hura.User.getUserId() + "&file_type=";
+        var url = "/buildpctoimage/";
+        //var tool = "/tools/screenshot/screenshot.php?url=";
+        window.open(url,'_blank');
     }
 
     function addConfigToCart() {
@@ -696,6 +696,7 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
 		wp_enqueue_script( 'woo-product-builder3', VI_WPRODUCTBUILDER_F_JS . 'hurastore.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );
 		//wp_enqueue_script( 'woo-product-builder3', VI_WPRODUCTBUILDER_F_JS . 'hurasoft.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );
 		wp_enqueue_script( 'woo-product-builder4', VI_WPRODUCTBUILDER_F_JS . 'common.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );
+		wp_enqueue_script( 'woo-product-builder5', VI_WPRODUCTBUILDER_F_JS . 'html2canvas.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );
 		// wp_enqueue_script( 'woo-product-builder4', VI_WPRODUCTBUILDER_F_JS . 'hurasoft.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );
 		// wp_enqueue_script( 'woo-product-builder5', VI_WPRODUCTBUILDER_F_JS . 'hurastore.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );
 		// wp_enqueue_script( 'woo-product-builder6', VI_WPRODUCTBUILDER_F_JS . 'webworker.js', array( 'jquery' ), VI_WPRODUCTBUILDER_F_VERSION );

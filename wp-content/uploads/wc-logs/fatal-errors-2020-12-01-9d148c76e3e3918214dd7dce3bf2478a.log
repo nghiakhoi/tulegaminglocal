@@ -1,0 +1,40 @@
+2020-12-01T14:53:27+00:00 CRITICAL Cannot redeclare collectiveray_load_js_script() (previously declared in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:41) in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 7
+
+2020-12-01T14:53:42+00:00 CRITICAL Cannot redeclare collectiveray_load_js_script() (previously declared in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:41) in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 7
+
+2020-12-01T14:56:37+00:00 CRITICAL Cannot redeclare collectiveray_load_js_script() (previously declared in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:41) in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 7
+
+2020-12-01T14:57:58+00:00 CRITICAL Cannot redeclare collectiveray_load_js_script() (previously declared in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:41) in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 7
+
+2020-12-01T15:01:27+00:00 CRITICAL Cannot redeclare my_nifty_scripts() (previously declared in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:48) in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 14
+
+2020-12-01T15:01:44+00:00 CRITICAL syntax error, unexpected '}', expecting end of file in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 40
+
+2020-12-01T15:01:44+00:00 CRITICAL syntax error, unexpected '}', expecting end of file in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 40
+
+2020-12-01T15:10:16+00:00 CRITICAL syntax error, unexpected '.' in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 8
+
+2020-12-01T15:55:05+00:00 CRITICAL syntax error, unexpected '=', expecting ')' in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 124
+
+2020-12-01T15:55:57+00:00 CRITICAL syntax error, unexpected '=', expecting ')' in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 124
+
+2020-12-01T15:56:41+00:00 CRITICAL syntax error, unexpected '=', expecting ')' in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 124
+
+2020-12-01T15:56:43+00:00 CRITICAL syntax error, unexpected '=', expecting ')' in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 124
+
+2020-12-01T15:56:49+00:00 CRITICAL syntax error, unexpected '=', expecting ')' in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 124
+
+2020-12-01T15:59:03+00:00 CRITICAL Uncaught Error: Call to undefined function create_save_as_image_imagecrowd_button() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php:126
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\template-loader.php(106): include()
+#1 D:\MAMP\htdocs\tulegaming\wp-blog-header.php(19): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\tulegaming\index.php(17): require('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 126
+
+2020-12-01T17:22:49+00:00 CRITICAL syntax error, unexpected end of file in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 182
+
+2020-12-01T17:23:16+00:00 CRITICAL syntax error, unexpected '}', expecting end of file in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 99
+
+2020-12-01T17:23:28+00:00 CRITICAL syntax error, unexpected '}', expecting end of file in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 99
+

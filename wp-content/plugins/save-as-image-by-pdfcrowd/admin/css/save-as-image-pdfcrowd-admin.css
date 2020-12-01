@@ -1,0 +1,100 @@
+.save-as-image-pdfcrowd-m-description {
+    max-height: 86px;
+    overflow-y: auto;
+}
+
+.save-as-image-pdfcrowd-m-description ul {
+    list-style: disc;
+    margin: 0 0 0 30px;
+}
+
+.save-as-image-pdfcrowd-m-description ul ul {
+    list-style: circle;
+}
+
+.save-as-image-pdfcrowd-m-description ul ul ul {
+    list-style: square;
+}
+
+#save-as-image-pdfcrowd-options select {
+    max-width: 500px !important;
+}
+
+#save-as-image-pdfcrowd-options pre {
+    font-size: 13px;
+    line-height: 1.2;
+    margin: 0.5em 0 0 1em;
+}
+
+
+.save-as-image-pdfcrowd-reset,
+.save-as-image-pdfcrowd-reset * {
+    all: initial;
+}
+
+.save-as-image-pdfcrowd-button-wrap {
+    display: block;
+}
+
+.save-as-image-pdfcrowd-button-wrap * {
+    cursor: pointer;
+}
+
+.save-as-image-pdfcrowd-button {
+    display: inline-block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.save-as-image-pdfcrowd-button-hover, .save-as-image-pdfcrowd-has-indicator-func:hover {
+    filter: grayscale(30%);
+}
+
+.save-as-image-pdfcrowd-button img {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+
+.save-as-image-pdfcrowd-inner-table {
+    margin: 0;
+    padding: 0;
+}
+
+.save-as-image-pdfcrowd-inner-table td {
+    padding: 0 3em 0 0;
+}
+
+#save-as-image-pdfcrowd-images img {
+    height: 24px;
+    vertical-align: middle;
+}
+
+.save-as-image-pdfcrowd-expert {
+    float: right;
+}
+
+.save-as-image-pdfcrowd-devi {
+    display: none;
+}
+
+.save-as-image-pdfcrowd-devi,
+.save-as-image-pdfcrowd-note {
+    padding: .5em;
+    color: #856000;
+    background-color: #fefebb;
+    font-size: 13px !important;
+}
+
+.save-as-image-pdfcrowd-lic-stat {
+    padding-left: 6px;
+    font-weight: bold;
+}
+
+#save-as-image-pdfcrowd-support-notes {
+    margin-top: 2em;
+}

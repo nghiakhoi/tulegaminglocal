@@ -1,0 +1,37 @@
+
+.save-as-image-pdfcrowd-reset,
+.save-as-image-pdfcrowd-reset * {
+    all: initial;
+}
+
+.save-as-image-pdfcrowd-button-wrap {
+    display: block;
+}
+
+.save-as-image-pdfcrowd-button-wrap * {
+    cursor: pointer;
+}
+
+.save-as-image-pdfcrowd-button {
+    display: inline-block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.save-as-image-pdfcrowd-button-hover, .save-as-image-pdfcrowd-has-indicator-func:hover {
+    filter: grayscale(30%);
+}
+
+.save-as-image-pdfcrowd-button img {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+
+.save-as-image-pdfcrowd-post-form {
+    display: none !important;
+}
