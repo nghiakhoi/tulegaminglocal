@@ -5,8 +5,8 @@
 }
 
 .build-pc *,.custom-pc * {
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1171,7 +1171,7 @@ ul {
 }
 
 .build-pc .popup-select .list-product-select {
-  height: calc(100vh - 160px);
+  height: calc(100vh - 200px);
   overflow-y: scroll;
 }
 

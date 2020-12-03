@@ -267,7 +267,7 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
                 $.ajax({
                     type : "post", //Phương thức truyền post hoặc get
                     dataType : "json", //Dạng dữ liệu trả về xml, json, script, or html
-                    url : '<?php echo admin_url('admin-ajax.php');?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
+                    url : '<?php echo admin_url('custom-ajax.php');?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
                     data : {
                         action: "loadpost", //Tên action
                     },
@@ -299,7 +299,7 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
    $.ajax({ // Hàm ajax
       type : "post", //Phương thức truyền post hoặc get
       dataType : "html", //Dạng dữ liệu trả về xml, json, script, or html
-      url : '<?php echo admin_url('admin-ajax.php');?>', // Nơi xử lý dữ liệu
+      url : '<?php echo admin_url('custom-ajax.php');?>', // Nơi xử lý dữ liệu
       data : {
          action: "getdanhmuc", //Tên action, dữ liệu gởi lên cho server
          cat_id: cat_id, //Gởi id chuyên mục cho server
@@ -345,8 +345,8 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
     
    
 ];
-	var SEARCH_URL = "<?php echo get_site_url(); ?>"+"/wp-admin/admin-ajax.php";
-	//var SEARCH_URL = "https://nghiakhoi.ddns.net:8888/wp-admin/admin-ajax.php";
+	var SEARCH_URL = "<?php echo get_site_url(); ?>"+"/wp-admin/custom-ajax.php";
+	//var SEARCH_URL = "https://nghiakhoi.ddns.net:8888/wp-admin/custom-ajax.php";
 
   
     let SAVE_BUILD_ID = '';
@@ -480,8 +480,10 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
                         break;
 
                     case "create-image"://tao anh
-                        //alert("Chức năng đang chờ bổ sung!");
-                        downloadImage();
+                        //var export_url = "/ajax/export_download.php?content_type="+SAVE_BUILD_ID+"&u=" + Hura.User.getUserId() + "&file_type=";
+						var url = "/buildpctoimage/";
+						//var tool = "/tools/screenshot/screenshot.php?url=";
+						window.open(url,'_blank');
                         break;
 
                     case "share"://chia se
@@ -740,7 +742,7 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
 		wp_add_inline_style( 'woo-product-builder', $custom_css );
 		// Localize the script with new data
 		$translation_array = array(
-			'ajax_url' => admin_url( 'admin-ajax.php' )
+			'ajax_url' => admin_url( 'custom-ajax.php' )
 		);
 		wp_localize_script( 'woo-product-builder', '_woo_product_builder_params', $translation_array );
 	}
