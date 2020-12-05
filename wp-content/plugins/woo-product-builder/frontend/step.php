@@ -426,19 +426,80 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
 		jQuery(".js-buildpc-promotion-content").html('');
   
   
-        // get save-config
-        Hura.User.getInfo(SAVE_BUILD_ID, function (pc_config) {
-            //set config
-            objBuildPC.setConfig(pc_config);
+        // get save-config đúng!!!!
+	   
 
-            for(let category_id in pc_config) {
-                if(pc_config.hasOwnProperty(category_id)) {
-                    objBuildPCVisual.displayProductInCategory(category_id, pc_config[category_id].items[0]);
+		<?php
+		if(count($_SESSION['sanphambuildpc'])>0){
+            //$array_product="";
+            $cate = wp_get_nav_menu_items('BuildPC');
+            $array_product=array();
+            for($i=0;$i<count($cate);$i++){
+
+                for($j=0;$j<count($_SESSION['sanphambuildpc']);$j++){
+                    if($_SESSION['sanphambuildpc'][$j]['cat_id']==$cate[$i]->object_id){
+                        $product_info = wc_get_product($_SESSION['sanphambuildpc'][$j]['id']);
+                        $image_id  = $product_info->get_image_id();
+                        $image_url = wp_get_attachment_image_url( $image_id, 'full' );
+                        $product_item['info']=array (
+                            'id' => $cate[$i]->object_id,
+                            'name' => $cate[$i]->title,
+                        );
+                        $product_item['items']=[
+                                array (
+                                  'id' => $product_info->get_id(),
+                                  'name' => $product_info->get_name(),
+                                  'sku' => $product_info->get_sku(),
+                                  'image' => $image_url,
+                                  'price' => $product_info->get_price(),
+                                  'url' => $product_info->get_permalink(),
+                                  'stock' => '1',
+                                  'quantity' => $_SESSION['sanphambuildpc'][$j]['sl'],
+                                  'price_sum' =>  number_format( $product_info->get_price() , 0, '', '.'),
+                                  'warranty' => '30 Tháng',
+                                  'note' => '',
+                                ),
+                            ];
+                        
+                            
+                           
+                        ;
+                        $array_product[$cate[$i]->object_id]=$product_item;
+                        //array_push($array_product,$product_item);
+
+                        
+                    }
+                    
+
+                    }
+                }
+            //print_r( $cate);
+            //$json = $array_product;
+            //echo $array_product;
+            //$out = array_values($array_product);
+            //$someArray = json_encode($out, true);
+            //print_r($someArray); 
+            echo "var savedInfo=".json_encode($array_product);
+            }else{
+                echo "var savedInfo=[]";
+            }
+		?>
+		
+
+			
+
+            objBuildPC.setConfig(savedInfo);
+
+            for(let category_id in savedInfo) {
+                if(savedInfo.hasOwnProperty(category_id)) {
+					objBuildPCVisual.displayProductInCategory(category_id, savedInfo[category_id].items[0]);
+					console.log(savedInfo);
+					console.log('pc_config[category_id].items[0]');
                 }
             }
             //show summary 
             objBuildPCVisual.displaySummary();
-        } );
+      
 
         _listener();
         
@@ -575,7 +636,9 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
         Hura.User.getInfo(SAVE_BUILD_ID, function (pc_config) {
             for(var category_id in pc_config) {
                 if(pc_config.hasOwnProperty(category_id)) {
-                    objBuildPCVisual.displayProductInCategory(category_id, pc_config[category_id].items[0]);
+					objBuildPCVisual.displayProductInCategory(category_id, pc_config[category_id].items[0]);
+					// console.log(pc_config);
+					// console.log('pc_config[category_id].items[0]');
                     var pro = JSON.stringify(pc_config[category_id].items[0], true, 4);
                     pro = JSON.parse(pro);
                     //console.log("config item = " + JSON.stringify(pc_config[category_id].items[0], true, 4));

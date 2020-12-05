@@ -93,7 +93,7 @@ function loadpost_init() {
         <div class="header">
             <h4>Chọn linh kiện</h4>
             <form action="">
-                <input type="text" value="" data-category-id="<?php echo $cat_id;?>" id="buildpc-search-keyword" class="input-search" placeholder="Bạn cần tìm linh kiện gì?">
+                <input type="text" value="" data-category-id="<?php echo $category_id;?>" id="buildpc-search-keyword" class="input-search" placeholder="Bạn cần tìm linh kiện gì?">
                 <span class="btn-search"><i class="far fa-search" id="js-buildpc-search-btn"></i></span>
                 <div class="icon-menu-filter-mobile"><i class="fal fa-filter"></i> Lọc</div>
             </form>
@@ -578,7 +578,14 @@ function example_ajax_request() {
           
         }
         
-
+        function title_filter( $where, &$wp_query )
+        {
+            global $wpdb;
+            if ( $search_term = $wp_query->get( 'search_prod_title' ) ) {
+                $where .= ' AND ' . $wpdb->posts . '.post_title LIKE \'%' . esc_sql( like_escape( $search_term ) ) . '%\'';
+            }
+            return $where;
+        }
   
 
   // ĐÂY LÀ CHỖ CHO AJAX SEARCH
@@ -587,16 +594,52 @@ add_action( 'wp_ajax_nopriv_timkiem', 'timkiem' );
 function timkiem() {
     $search_string = isset($_POST['searchstring']) ? $_POST['searchstring'] : "";
     $category_id = isset($_POST['category_id']) ? $_POST['category_id'] : "";
-    global $wpdb; // Biến toàn cục lớp $wpdb được sử dụng trong khi tương tác với databse wordpress
-     $table = $wpdb->prefix . 'posts'; // Khai báo bảng cần lấy
-     $sql = "SELECT * FROM {$table} 
-        INNER JOIN $wpdb->term_relationships ON wp_term_relationships.object_id = wp_posts.ID
+    // global $wpdb; // Biến toàn cục lớp $wpdb được sử dụng trong khi tương tác với databse wordpress
+    //  $table = $wpdb->prefix . 'posts'; // Khai báo bảng cần lấy
+    //  $sql = "SELECT * FROM {$table} 
+    //     INNER JOIN $wpdb->term_relationships ON wp_term_relationships.object_id = wp_posts.ID
         
-        WHERE `post_type` = 'product' and wp_term_relationships.term_taxonomy_id = '".$category_id."' and (`post_title` LIKE '%".$search_string."%' OR `post_title` LIKE '".$search_string."%')
-     ";
-     $data = $wpdb->get_results( $wpdb->prepare($sql, $limit, $offset), ARRAY_A); // thực thi câu query, trả về dữ liệu trong biến $data
-     
-       //print_r( $data); 
+    //     WHERE `post_type` = 'product' and wp_term_relationships.term_taxonomy_id = '".$category_id."' and (`post_title` LIKE '%".$search_string."%' OR `post_title` LIKE '".$search_string."%')
+    //  ";
+    //  $data = $wpdb->get_results( $wpdb->prepare($sql, $limit, $offset), ARRAY_A); // thực thi câu query, trả về dữ liệu trong biến $data
+    
+    
+    // $args = array(
+    //     'post_type'     => 'product',
+    //     'post_status'   => 'publish',
+    //     'posts_per_page' => -1,
+
+    //     'tax_query'      => array( array(
+    //         'taxonomy'   => 'product_cat',
+    //         'field'      => 'term_id',
+    //         'terms'      => $category_id,
+    //     ) ),
+
+    //     'search_prod_title' => $search_string,
+    // );
+
+    // $query = new WP_Query($args);
+    // $posts = $query->posts;
+
+
+    $args = array(
+        'post_type' => 'product',
+        'post_status'   => 'publish',
+        'search_prod_title' => $search_term,
+        'post_status' => 'publish',
+        'orderby'     => 'title', 
+        'order'       => 'ASC'
+    );
+    
+    add_filter( 'posts_where', 'title_filter', 10, 2 );
+    $wp_query = new WP_Query($args);
+    remove_filter( 'posts_where', 'title_filter', 10, 2 );
+    $posts = $wp_query->posts; ///cần convert to aarayy
+    // return $wp_query;
+
+
+
+       print_r( $wp_query); 
       
     ?>
 
