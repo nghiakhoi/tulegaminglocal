@@ -51,7 +51,17 @@ function loadpost_init() {
             'taxonomy'   => 'product_cat',
             'field'      => 'term_id',
             'terms'      => $category_id,
-        ) )
+        ) ),
+        'meta_query' => array(
+            array(
+                'key' => '_stock_status',
+                'value' => 'instock'
+            ),
+            array(
+                'key' => '_backorders',
+                'value' => 'no'
+            ),
+        )
     ) );
     
 
@@ -145,14 +155,21 @@ function loadpost_init() {
                                 </tr>
                                 <tr>
                                     <td>Bảo hành:</td>
-                                    <td>36 tháng</td>
+                                    <td><?php 
+                                    echo array_shift(woocommerce_get_product_terms(get_the_ID(), 'pa_bao-hanh', 'names')); //$product->get_attribute( 'pa_bao-hanh' ); //echo get_attribute('pa_bao-hanh')?></td>
                                 </tr>
                                 <tr>
-                                    <td valign="top">Kho hàng:</td>
+                                    <td valign="top">Kho hàng: </td>
                                     <td>
                                         
                                         <span class="dongbotonkho">
-                                        <span class="detail" style="background: #278c56; color: #fff; padding: 2px 10px; white-space: pre-line;"><i class="far fa-check"></i> Còn hàng</span>
+                                        <span class="detail" style="background: #278c56; color: #fff; padding: 2px 10px; white-space: pre-line;"><i class="far fa-check"></i> <?php $productinstock = wc_get_product( get_the_ID() );
+                                        if ( 'instock' == $productinstock->get_stock_status()) {        
+                                            echo  'Còn hàng';  
+                                                } else {
+                                            echo 'Hết hàng';      
+                                                }
+                                        ?></span>
                                       </span>
                                         
                                     </td>
@@ -430,7 +447,7 @@ function example_ajax_request() {
                 }
             ],
             "productImageCount": "4",
-            "warranty": "36 Th\u00e1ng",
+            "warranty": "'.$product_info->get_attribute('pa_bao-hanh').'",
             "specialOffer": {
                 "all": []
             },
@@ -538,7 +555,7 @@ function example_ajax_request() {
                                   'stock' => '1',
                                   'quantity' => $_SESSION['sanphambuildpc'][$j]['sl'],
                                   'price_sum' =>  number_format( $product_info->get_price() , 0, '', '.'),
-                                  'warranty' => '30 Tháng',
+                                  'warranty' => $product_info->get_attribute('pa_bao-hanh'),
                                   'note' => '',
                                 ),
                             ];
@@ -704,7 +721,7 @@ function timkiem() {
                                 </tr>
                                 <tr>
                                     <td>Bảo hành:</td>
-                                    <td>36 tháng</td>
+                                    <td><?php echo get_attribute('pa_bao-hanh')?></td>
                                 </tr>
                                 <tr>
                                     <td valign="top">Kho hàng:</td>
@@ -886,7 +903,7 @@ die();//bắt buộc phải có khi kết thúc
                                 </tr>
                                 <tr>
                                     <td>Bảo hành:</td>
-                                    <td>36 tháng</td>
+                                    <td><?php echo get_attribute('pa_bao-hanh')?></td>
                                 </tr>
                                 <tr>
                                     <td valign="top">Kho hàng:</td>

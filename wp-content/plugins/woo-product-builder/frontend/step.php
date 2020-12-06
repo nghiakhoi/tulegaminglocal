@@ -415,7 +415,7 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
                                   'stock' => '1',
                                   'quantity' => $_SESSION['sanphambuildpc'][$j]['sl'],
                                   'price_sum' =>  number_format( $product_info->get_price() , 0, '', '.'),
-                                  'warranty' => '30 Tháng',
+                                  'warranty' => $product_info->get_attribute('pa_bao-hanh'),
                                   'note' => '',
                                 ),
                             ];

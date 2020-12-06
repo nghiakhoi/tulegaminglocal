@@ -85,3 +85,150 @@ Stack trace:
 
 2020-12-06T02:39:19+00:00 CRITICAL Object of class WP_Post could not be converted to string in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 710
 
+2020-12-06T08:41:41+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_variation_attributes() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php:69
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\template-loader.php(106): include()
+#1 D:\MAMP\htdocs\tulegaming\wp-blog-header.php(19): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\tulegaming\index.php(17): require('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 69
+
+2020-12-06T09:12:13+00:00 CRITICAL Uncaught Error: Call to undefined function print_() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php:51
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\template-loader.php(106): include()
+#1 D:\MAMP\htdocs\tulegaming\wp-blog-header.php(19): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\tulegaming\index.php(17): require('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 51
+
+2020-12-06T09:14:57+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::post_name() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php:46
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\template-loader.php(106): include()
+#1 D:\MAMP\htdocs\tulegaming\wp-blog-header.php(19): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\tulegaming\index.php(17): require('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 46
+
+2020-12-06T09:15:34+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::post_name() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php:46
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\template-loader.php(106): include()
+#1 D:\MAMP\htdocs\tulegaming\wp-blog-header.php(19): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\tulegaming\index.php(17): require('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 46
+
+2020-12-06T09:15:44+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::post_name() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php:46
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\template-loader.php(106): include()
+#1 D:\MAMP\htdocs\tulegaming\wp-blog-header.php(19): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\tulegaming\index.php(17): require('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 46
+
+2020-12-06T09:48:37+00:00 CRITICAL Uncaught Error: Call to undefined function get_attribute() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:148
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): loadpost_init('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 148
+
+2020-12-06T11:08:14+00:00 CRITICAL Uncaught Error: Call to undefined function get_attribute() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:148
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): loadpost_init('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 148
+
+2020-12-06T11:08:44+00:00 CRITICAL Uncaught Error: Call to undefined function get_attribute() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:148
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): loadpost_init('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 148
+
+2020-12-06T11:09:00+00:00 CRITICAL Uncaught Error: Call to undefined function get_attribute() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:148
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): loadpost_init('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 148
+
+2020-12-06T11:09:03+00:00 CRITICAL Uncaught Error: Call to undefined function get_attribute() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:148
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): loadpost_init('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 148
+
+2020-12-06T11:13:14+00:00 CRITICAL Uncaught Error: Call to undefined function get_ID() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:149
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): loadpost_init('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 149
+
+2020-12-06T11:13:38+00:00 CRITICAL Uncaught Error: Call to undefined function get_ID() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:149
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): loadpost_init('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 149
+
+2020-12-06T11:15:40+00:00 CRITICAL Uncaught Error: Call to a member function get_stock_status() on null in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:156
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): loadpost_init('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 156
+
+2020-12-06T11:18:52+00:00 CRITICAL Uncaught Error: Call to undefined function get_stock_status() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:157
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): loadpost_init('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 157
+
+2020-12-06T11:18:59+00:00 CRITICAL Uncaught Error: Call to undefined function get_stock_status() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:166
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): loadpost_init('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 166
+
+2020-12-06T11:20:33+00:00 CRITICAL Uncaught Error: Call to a member function get_stock_status() on boolean in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:166
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): loadpost_init('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 166
+
+2020-12-06T12:13:08+00:00 CRITICAL Uncaught Error: Call to a member function get_price() on null in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php:51
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\template-loader.php(106): include()
+#1 D:\MAMP\htdocs\tulegaming\wp-blog-header.php(19): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\tulegaming\index.php(17): require('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\page-html-to-image.php on line 51
+
