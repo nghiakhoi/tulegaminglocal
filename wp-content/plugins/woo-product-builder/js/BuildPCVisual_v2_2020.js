@@ -136,6 +136,8 @@ var BuildPCVisual = function (_objBuildPC) {
               
             }
 
+             
+
             //edit product
             if($this_ele.hasClass('edit-item')) {
                 console.log("edit product = " + product_id);

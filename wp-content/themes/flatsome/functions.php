@@ -37,6 +37,23 @@ if(!isset($_SESSION["sanphambuildpc"])){
 //  }
 
 
+add_filter( 'woocommerce_billing_fields', 'wc_unrequire_wc_email_field');
+function wc_unrequire_wc_email_field( $fields ) {
+$fields['billing_email']['required'] = false;
+return $fields;
+}
+
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields', 99 );
+
+function custom_override_checkout_fields( $fields ) {
+
+    unset($fields['billing']['billing_company']);
+    unset($fields['billing']['billing_postcode']);
+    //unset($fields['shipping']['shipping_postcode']['validate']);
+
+    return $fields;
+}
+
 
 add_action( 'wp_ajax_loadpost', 'loadpost_init' );
 add_action( 'wp_ajax_nopriv_loadpost', 'loadpost_init' );
@@ -286,6 +303,35 @@ function updateitem() {
     }
     $_SESSION['sanphambuildpc'] = array_values($_SESSION['sanphambuildpc']);
 
+    echo 'ok';
+    die(); 
+
+    ?>
+
+
+    <?php
+    //die();//bắt buộc phải có khi kết thúc
+
+    }
+
+
+
+    add_action( 'wp_ajax_addtocartfrombuildpc', 'addtocartfrombuildpc' );
+add_action( 'wp_ajax_nopriv_addtocartfrombuildpc', 'addtocartfrombuildpc' );
+function addtocartfrombuildpc() {
+    //$id = isset($_POST['id']) ? (int)$_POST['id'] : 0;
+    $cat_id = isset($_POST['cat_id']) ? (int)$_POST['cat_id'] : 0;
+    $quantity = isset($_POST['quantity']) ? (int)$_POST['quantity'] : 0;
+    
+    for($i=0;$i<count($_SESSION['sanphambuildpc']);$i++){
+        
+        
+        WC()->cart->add_to_cart( $_SESSION['sanphambuildpc'][$i]['id'] , $_SESSION['sanphambuildpc'][$i]['sl']);
+            //unset($_SESSION['sanphambuildpc'][$i]);
+            //$_SESSION['sanphambuildpc'][$i]['sl']=$quantity;
+        
+    }
+ 
     echo 'ok';
     die(); 
 

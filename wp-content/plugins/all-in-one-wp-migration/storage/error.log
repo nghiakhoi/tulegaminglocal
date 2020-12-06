@@ -1,0 +1,9 @@
+Dec 06 2020 17:24:52
+{"Number":2,"Message":"rename(D:\\MAMP\\htdocs\\tulegaming\\wp-content\\plugins\\all-in-one-wp-migration\\storage\\lpib8yu7xrin\\tulegaming.test-20201206-172412-yru15s.wpress,D:\\MAMP\\htdocs\\tulegaming\/wp-content\\ai1wm-backups\\tulegaming.test-20201206-172412-yru15s.wpress): The process cannot access the file because it is being used by another process. (code: 32)","File":"D:\\MAMP\\htdocs\\tulegaming\\wp-content\\plugins\\all-in-one-wp-migration\\lib\\model\\export\\class-ai1wm-export-download.php","Line":44}
+
+Dec 06 2020 17:24:55
+{"Number":2,"Message":"unlink(D:\\MAMP\\htdocs\\tulegaming\\wp-content\\plugins\\all-in-one-wp-migration\\storage\\lpib8yu7xrin\\tulegaming.test-20201206-172412-yru15s.wpress): Resource temporarily unavailable","File":"D:\\MAMP\\htdocs\\tulegaming\\wp-content\\plugins\\all-in-one-wp-migration\\lib\\vendor\\servmask\\filesystem\\class-ai1wm-directory.php","Line":66}
+
+Dec 06 2020 17:24:55
+{"Number":2,"Message":"rmdir(D:\\MAMP\\htdocs\\tulegaming\\wp-content\\plugins\\all-in-one-wp-migration\\storage\\lpib8yu7xrin): Directory not empty","File":"D:\\MAMP\\htdocs\\tulegaming\\wp-content\\plugins\\all-in-one-wp-migration\\lib\\vendor\\servmask\\filesystem\\class-ai1wm-directory.php","Line":72}
+

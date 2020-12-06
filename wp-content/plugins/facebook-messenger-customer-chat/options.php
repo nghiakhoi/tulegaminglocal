@@ -48,7 +48,7 @@ add_action( 'admin_menu', function() {
 add_action( 'admin_enqueue_scripts', 'fbmcc_add_styles' );
 add_action( 'admin_enqueue_scripts', 'fmcc_localize_ajax' );
 
-add_action( 'wp_ajax_update_options', 'fbmcc_update_options');
+add_action( 'wp_ajax_fbmcc_update_options', 'fbmcc_update_options');
 
 function fbmcc_update_options() {
 
@@ -78,7 +78,7 @@ function fbmcc_sanitize_locale($input) {
 
 function fbmcc_add_styles() {
   wp_enqueue_style(
-    'admin-styles',
+    'fbmcc-admin-styles',
     plugins_url( '/settings.css', __FILE__ ),
     false,
     '1.0',
@@ -93,72 +93,78 @@ function fmcc_localize_ajax() {
       'nonce' => wp_create_nonce( 'update_fmcc_code' )
     );
 
-    wp_register_script( 'code_script', plugin_dir_url( __FILE__ ) . 'script.js' );
+    wp_register_script( 'code_script',
+      plugin_dir_url( __FILE__ ) . 'script.js' );
     wp_localize_script( 'code_script', 'ajax_object', $ajax_object );
     wp_enqueue_script( 'code_script' );
   }
-  
+
 }
 
 function fbmcc_integration_settings() {
   ?>
-  <div class="wrap">
-      <h2>Messenger Customer Chat Settings</h2>
-      <div class="fbmcc-card card">
-        <div class="intro">
-          <div>
-            <h2>Getting Started?</h2>
-            <p class="fbmcc-instructions">Let people start a conversation on your
-              website and continue in Messenger. It's easy to set up. We'll
-              give you the code to add to your website. 
-            </p>
-          </div>
-          <div class="fbmcc-buttonContainer">
-            <button
-              class="fbmcc-setupButton"
-              type="button"
-              onclick="fbmcc_setupCustomerChat()"
-            >
-              <?php
-                if( get_option( 'fbmcc_pageID' ) == "" ) {
-                  _e( 'Setup Chat Plugin' );
-                } else {
-                  _e( 'Edit Chat Plugin' );
-                }
-              ?>
-            </button>
-          </div>
+    <div class="wrap">
+        <h2>Facebook Chat Plugin Settings</h2>
+        <div class="fbmcc-card card">
+            <div class="intro">
+                <div>
+                    <h2>Getting Started?</h2>
+                    <p class="fbmcc-instructions">Let people start a conversation on
+                        your website and continue in Messenger. It's easy to set up. Chats
+                        started on your website can be continued in the customers'
+                        Messenger app, so you never lose connections with your customers.
+                        Even those without a Facebook Messenger account can chat with you
+                        in guest mode, so you can reach more customers than ever.
+                    </p>
+                </div>
+                <div class="fbmcc-buttonContainer">
+                    <button
+                            class="fbmcc-setupButton"
+                            type="button"
+                            onclick="fbmcc_setupCustomerChat()"
+                    >
+                      <?php
+                      if( get_option( 'fbmcc_pageID' ) == "" ) {
+                        _e( 'Setup Chat Plugin' );
+                      } else {
+                        _e( 'Edit Chat Plugin' );
+                      }
+                      ?>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div
-        id="fbmcc-page-params"
-        class="fbmcc-card card"
-        <?php if( get_option( 'fbmcc_pageID' ) == "" ) {
-          _e( 'style="display:none;"' );
-        } ?>>
-        <div>
-          <p class="fbmcc-instructions">The plugin code has already been added into your
-            website. You can always go back through the setup process to customize the plugin.
-          </p>
+        <div
+                id="fbmcc-page-params"
+                class="fbmcc-card card"
+          <?php if( get_option( 'fbmcc_pageID' ) == "" ) {
+            _e( 'style="display:none;"' );
+          } ?>>
+            <div>
+                <p class="fbmcc-instructions">The plugin code has already been added
+                    into your website. You can always go back through the setup process
+                    to customize the plugin.
+                </p>
+            </div>
         </div>
-      </div>
-    <div class="fbmcc-card card">
-      <div class="intro">
-        <p class="fbmcc-instructions"> 
-          Use of this plugin is subject to <a href='https://developers.facebook.com/policy/'>Facebook's Platform Policies</a><br><br>
-          Having a problem with the Chat Plugin?
-          Report the issue on the <a
-            href='https://developers.facebook.com/support/bugs/'
-            target='_blank'>
-            Facebook Platform Bug Reports</a> page. If you get stuck or have questions,
-            you can ask for help in the
-            <a
-            href='https://www.facebook.com/groups/messengerplatform'
-            target='_blank'>
-            Messenger Platform Developer Community</a>.
-        </p>
-      </div>
+        <div class="fbmcc-card card">
+            <div class="intro">
+                <p class="fbmcc-instructions">
+                    Use of this plugin is subject to
+                    <a href='https://developers.facebook.com/terms/'>
+                        Facebook's Platform Terms</a><br><br>
+                    Having a problem setting up or using the Chat Plugin?<br>
+                <ul>
+                    <li>Please consult our <a href='https://www.facebook.com/business/help/789975831794468'>
+                            Troubleshooting Guide.</a>
+                    </li>
+                    <li>If the troubleshooting steps in the guide do not solve your problem, please post in the plugin <a href='https://wordpress.org/support/plugin/facebook-messenger-customer-chat/'>
+                            support forum.</a>
+                    </li>
+                </ul>
+                </p>
+            </div>
+        </div>
     </div>
-  </div>
 <?php }
 ?>

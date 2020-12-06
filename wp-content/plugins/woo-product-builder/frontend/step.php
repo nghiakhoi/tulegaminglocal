@@ -516,7 +516,19 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
 
                     case "add-cart"://them gio hang
                         //alert("Chức năng đang chờ bổ sung!");
-                        addConfigToCart();
+						var ACTION_URL = "/wp-admin/custom-ajax.php";
+						jQuery.post(ACTION_URL, {
+                        action     : "addtocartfrombuildpc",
+                    } , function (data) {
+                        if(data=="ok"){
+                            //jQuery("#js-selected-item-" + category_id).html('');
+                            var url = '/cart';
+                            window.location.href = url;
+                        }
+                        
+                       
+                    });
+						
                         break;
                 }
             });
