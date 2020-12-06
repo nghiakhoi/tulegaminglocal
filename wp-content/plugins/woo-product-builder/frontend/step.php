@@ -113,45 +113,7 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
 		$next_url     = add_query_arg( array( 'step' => $step_next ), get_the_permalink() );
 		$previous_url = add_query_arg( array( 'step' => $step_prev ), get_the_permalink() );
 		?>
-		<div class="woopb-heading-navigation">
-			<div class="woopb-heading">
-				<?php $step_text = $this->get_data( $post_id, 'text_prefix' );
-				if ( $step_text ) {
-					echo '<span class="woopb-heading-step-prefix">' . esc_html( str_replace( '{step_number}', $step_id, $step_text ) ) . '</span>';
-				}
-				echo '<span class="woopb-heading-step-title">' . esc_html( $tabs[ $step_id - 1 ] ) . '</span>' ?>
-			</div>
-
-			<div class="woopb-navigation">
-				<?php if ( $step_prev ) { ?>
-					<div class="woopb-navigation-previous">
-						<a href="<?php echo esc_url( $previous_url ) ?>" class="woopb-link"><?php echo esc_html__( 'Previous', 'woo-product-builder' ) ?></a>
-					</div>
-				<?php } ?>
-				<?php if ( $step_next ) { ?>
-					<div class="woopb-navigation-next">
-						<a href="<?php echo esc_url( $next_url ) ?>" class="woopb-link"><?php echo esc_html__( 'Next', 'woo-product-builder' ) ?></a>
-					</div>
-				<?php }
-
-				/*Check all steps that producted are added*/
-				if ( ! $step_next && $this->get_data( $post_id, 'enable_preview' ) ) { ?>
-					<div class="woopb-navigation-preview">
-						<a href="<?php echo esc_url( $review_url ) ?>" class="woopb-link"><?php echo esc_html__( 'Preview', 'woo-product-builder' ) ?></a>
-					</div>
-
-					<?php
-				}
-				if ( $this->settings->has_step_added( $post_id ) ) {
-					?>
-					<form method="POST" action="<?php echo wc_get_cart_url() ?>" class="woopb-form-cart-now">
-						<?php wp_nonce_field( '_woopb_add_to_woocommerce', '_nonce' ) ?>
-						<input type="hidden" name="woopb_id" value="<?php echo esc_attr( get_the_ID() ) ?>" />
-						<button class="woopb-button woopb-button-primary"><?php esc_html_e( 'Add to cart', 'woo-product-builder' ) ?></button>
-					</form>
-				<?php } ?>
-			</div>
-		</div>
+		
 	<?php }
 
 	/**
@@ -233,19 +195,16 @@ class VI_WPRODUCTBUILDER_F_FrontEnd_Step {
             
           </ul>
           
-          <div class="clear"></div>
           <div class="separator"></div>
           
-          <p style="float:right; font-size:20px; margin-top:10px;">Chi phí dự tính: <?php echo '<pre>' . print_r($_SESSION['sanphambuildpc']) . '</pre>'; ?> <span class="js-config-summary" style="color: #d00; font-weight: bold"><span class="total-price-config">0</span> đ <p> </p></span> </p><div class="clear"></div>
-			<div class="js-buildpc-promotion-content"></div>
-          <div class="clear"></div>
+          <p style="float:right; font-size:20px; margin-top:10px;">Chi phí dự tính: <span class="js-config-summary" style="color: #d00; font-weight: bold"><span class="total-price-config">0</span> đ <p> </p></span> </p><div class="clear"></div>
+		
           <div class="list-drive" id="js-buildpc-layout">
           
                         </div>
-          <div class="clear"></div>
+         
           <p style="float:right; font-size:20px; margin-top:10px;">Chi phí dự tính: <span class="js-config-summary" style="color: #d00; font-weight: bold"><span class="total-price-config">0</span> đ <p> </p></span></p><div class="clear"></div>
-          <div class="js-buildpc-promotion-content"></div>
-          <div class="clear"></div>
+         
           <ul class="list-btn-action" id="js-buildpc-action">
            <li><span data-action="download-excel">tải file excel cấu hình <i class="far fa-file-excel"></i></span></li>
             <li><span data-action="create-image">tải ảnh cấu hình <i class="far fa-image"></i></span></li>

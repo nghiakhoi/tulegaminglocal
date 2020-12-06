@@ -1,0 +1,87 @@
+2020-12-06T02:24:39+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:708
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): timkiem('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_timkiem')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 708
+
+2020-12-06T02:25:04+00:00 CRITICAL Uncaught Error: Call to a member function get_price() on boolean in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:736
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): timkiem('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_timkiem')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 736
+
+2020-12-06T02:25:40+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:708
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): timkiem('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_timkiem')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 708
+
+2020-12-06T02:26:35+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:708
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): timkiem('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_timkiem')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 708
+
+2020-12-06T02:29:15+00:00 CRITICAL Uncaught Error: Call to undefined method WP_Post::post_name() in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:708
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): timkiem('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_timkiem')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 708
+
+2020-12-06T02:29:44+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:734
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): timkiem('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_timkiem')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 734
+
+2020-12-06T02:35:03+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:708
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): timkiem('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_timkiem')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 708
+
+2020-12-06T02:36:43+00:00 CRITICAL Object of class WP_Post could not be converted to string in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 710
+
+2020-12-06T02:37:17+00:00 CRITICAL Object of class WP_Post could not be converted to string in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 710
+
+2020-12-06T02:37:51+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:735
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): timkiem('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_timkiem')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 735
+
+2020-12-06T02:38:43+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php:738
+Stack trace:
+#0 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(287): timkiem('')
+#1 D:\MAMP\htdocs\tulegaming\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 D:\MAMP\htdocs\tulegaming\wp-includes\plugin.php(478): WP_Hook->do_action(Array)
+#3 D:\MAMP\htdocs\tulegaming\wp-admin\custom-ajax.php(175): do_action('wp_ajax_timkiem')
+#4 {main}
+  thrown in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 738
+
+2020-12-06T02:39:19+00:00 CRITICAL Object of class WP_Post could not be converted to string in D:\MAMP\htdocs\tulegaming\wp-content\themes\flatsome\functions.php on line 710
+

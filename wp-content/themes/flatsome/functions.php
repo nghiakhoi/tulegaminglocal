@@ -71,7 +71,7 @@ function loadpost_init() {
 
     function searchKeyword(query,category_id) {
         if(query.length < 2) return ;
-        objBuildPCVisual.searchProductFilter(SEARCH_URL, encodeURIComponent(query),category_id);
+        objBuildPCVisual.searchProductFilter(SEARCH_URL, (query),category_id);
     }
 
     jQuery("#buildpc-search-keyword").keypress(function(e) {
@@ -109,15 +109,11 @@ function loadpost_init() {
                         <select style="position: relative;    top: -40px;    left: 70px;" onchange="if(this.value != '') { objBuildPCVisual.showProductFilter(this.value) }">
                             <option value="">Tùy chọn</option>
                             
-                            <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=new">Mới nhất</option>
                             
                             <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=price-asc">Giá tăng dần</option>
                             
                             <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=price-desc">Giá giảm dần</option>
-                            
-                            <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=view">Lượt xem</option>
-                            
-                            <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=rating">Đánh giá</option>
+                 
                             
                             <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=name">Tên A-&gt;Z</option>
                             
@@ -592,34 +588,10 @@ function example_ajax_request() {
   add_action( 'wp_ajax_timkiem', 'timkiem' );
 add_action( 'wp_ajax_nopriv_timkiem', 'timkiem' );
 function timkiem() {
-    $search_string = isset($_POST['searchstring']) ? $_POST['searchstring'] : "";
+    $search_term = isset($_POST['searchstring']) ? $_POST['searchstring'] : "";
     $category_id = isset($_POST['category_id']) ? $_POST['category_id'] : "";
-    // global $wpdb; // Biến toàn cục lớp $wpdb được sử dụng trong khi tương tác với databse wordpress
-    //  $table = $wpdb->prefix . 'posts'; // Khai báo bảng cần lấy
-    //  $sql = "SELECT * FROM {$table} 
-    //     INNER JOIN $wpdb->term_relationships ON wp_term_relationships.object_id = wp_posts.ID
-        
-    //     WHERE `post_type` = 'product' and wp_term_relationships.term_taxonomy_id = '".$category_id."' and (`post_title` LIKE '%".$search_string."%' OR `post_title` LIKE '".$search_string."%')
-    //  ";
-    //  $data = $wpdb->get_results( $wpdb->prepare($sql, $limit, $offset), ARRAY_A); // thực thi câu query, trả về dữ liệu trong biến $data
+   
     
-    
-    // $args = array(
-    //     'post_type'     => 'product',
-    //     'post_status'   => 'publish',
-    //     'posts_per_page' => -1,
-
-    //     'tax_query'      => array( array(
-    //         'taxonomy'   => 'product_cat',
-    //         'field'      => 'term_id',
-    //         'terms'      => $category_id,
-    //     ) ),
-
-    //     'search_prod_title' => $search_string,
-    // );
-
-    // $query = new WP_Query($args);
-    // $posts = $query->posts;
 
 
     $args = array(
@@ -634,12 +606,12 @@ function timkiem() {
     add_filter( 'posts_where', 'title_filter', 10, 2 );
     $wp_query = new WP_Query($args);
     remove_filter( 'posts_where', 'title_filter', 10, 2 );
-    $posts = $wp_query->posts; ///cần convert to aarayy
+    $posts = $wp_query->posts; 
     // return $wp_query;
 
 
-
-       print_r( $wp_query); 
+    // echo $posts[0]->ID;
+    //    print_r( $posts); 
       
     ?>
 
@@ -657,7 +629,7 @@ function timkiem() {
 
     function searchKeyword(query,category_id) {
         if(query.length < 2) return ;
-        objBuildPCVisual.searchProductFilter(SEARCH_URL, encodeURIComponent(query),category_id);
+        objBuildPCVisual.searchProductFilter(SEARCH_URL, (query),category_id);
     }
 
     jQuery("#buildpc-search-keyword").keypress(function(e) {
@@ -695,15 +667,11 @@ function timkiem() {
                         <select style="position: relative;    top: -40px;    left: 70px;"  onchange="if(this.value != '') { objBuildPCVisual.showProductFilter(this.value) }">
                             <option value="">Tùy chọn</option>
                             
-                            <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=new">Mới nhất</option>
-                            
                             <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=price-asc">Giá tăng dần</option>
                             
                             <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=price-desc">Giá giảm dần</option>
                             
-                            <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=view">Lượt xem</option>
-                            
-                            <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=rating">Đánh giá</option>
+            
                             
                             <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=name">Tên A-&gt;Z</option>
                             
@@ -711,26 +679,23 @@ function timkiem() {
                     </div>
 
                     
-                    <div class="paging-block float_r paging-ajax">
-                        <table cellpadding="0" cellspacing="0"><tbody><tr><td class="pagingIntact"><a>Xem</a></td><td class="pagingSpace"></td><td class="pagingViewed">1</td><td class="pagingSpace"></td><td class="pagingIntact"><a href="javascript:;" onclick="loadAjaxContent('', '/ajax/get_json.php?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;storeId=&amp;&amp;page=2')">2</a></td><td class="pagingSpace"></td><td class="pagingIntact"><a href="javascript:;" onclick="loadAjaxContent('', '/ajax/get_json.php?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;storeId=&amp;&amp;page=3')">3</a></td><td class="pagingSpace"></td><td class="pagingIntact"><a href="javascript:;" onclick="loadAjaxContent('', '/ajax/get_json.php?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;storeId=&amp;&amp;page=4')">4</a></td><td class="pagingSpace"></td><td class="pagingIntact"><a href="javascript:;" onclick="loadAjaxContent('', '/ajax/get_json.php?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;storeId=&amp;&amp;page=5')">5</a></td><td class="pagingSpace"></td><td class="pagingIntact"><a href="javascript:;" onclick="loadAjaxContent('', '/ajax/get_json.php?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;storeId=&amp;&amp;page=6')">6</a></td><td class="pagingSpace"></td><td class="pagingIntact"><a href="javascript:;" onclick="loadAjaxContent('', '/ajax/get_json.php?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;storeId=&amp;&amp;page=7')">7</a></td><td class="pagingSpace"></td><td class="pagingFarSide" align="center">...</td><td class="pagingIntact"><a href="javascript:;" onclick="loadAjaxContent('', '/ajax/get_json.php?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;storeId=&amp;&amp;page=2')">&gt;&gt;</a></td></tr></tbody></table>
-                    </div>
                 </div>
 
                 <div class="list-product-select">
 
                     <?php
-                    foreach($data as $value){
-
+                    foreach($posts as $value){
+                        echo $value->post_name;
                     
                     ?>
                     <div class="p-item">
-                        <a href="<?php echo get_site_url(null,'/product/'.$value['post_name'],null); ?>" class="p-img">
+                        <a href="<?php echo get_site_url(null,'/product/'.$value->post_name,null); ?>" class="p-img">
                             
-                            <img src="<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $value['ID'] ), 'single-post-thumbnail' ); echo $image[0]; ?>" alt="<?php echo get_the_title(); ?>">
+                            <img src="<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $value->ID ), 'single-post-thumbnail' ); echo $image[0]; ?>" alt="<?php echo get_the_title(); ?>">
                             
                         </a>
                         <div class="info">
-                            <a href="<?php echo get_site_url(null,'/product/'.$value['post_name'],null); ?>" class="p-name"><?php echo $value['post_title']; ?></a>
+                            <a href="<?php echo get_site_url(null,'/product/'.$value->post_name,null); ?>" class="p-name"><?php echo $value->post_title; ?></a>
 
                             <table>
                                 <tbody><tr>
@@ -752,11 +717,11 @@ function timkiem() {
                                     </td>
                                 </tr>
                             </tbody></table>
-                            <span class="p-price"><?php $product = wc_get_product( $value['ID'] ); echo number_format( $product->get_price() , 0, '', '.'); ?> đ</span>
+                            <span class="p-price"><?php $product = wc_get_product( $value->ID ); echo number_format( $product->get_price() , 0, '', '.'); ?> đ</span>
                         </div>
 
                         
-                        <span class="btn-buy js-select-product" data-id="<?php echo $value['ID']; ?>"></span>
+                        <span class="btn-buy js-select-product" data-id="<?php echo $value->ID; ?>"></span>
                         
                     </div>
                     <?php
@@ -850,7 +815,7 @@ die();//bắt buộc phải có khi kết thúc
  
      function searchKeyword(query,category_id) {
          if(query.length < 2) return ;
-         objBuildPCVisual.searchProductFilter(SEARCH_URL, encodeURIComponent(query),category_id);
+         objBuildPCVisual.searchProductFilter(SEARCH_URL, (query),category_id);
      }
  
      jQuery("#buildpc-search-keyword").keypress(function(e) {
@@ -888,16 +853,10 @@ die();//bắt buộc phải có khi kết thúc
                          <select style="position: relative;    top: -40px;    left: 70px;"  onchange="if(this.value != '') { objBuildPCVisual.showProductFilter(this.value) }">
                              <option value="">Tùy chọn</option>
                              
-                             <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=new">Mới nhất</option>
-                             
                              <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=price-asc">Giá tăng dần</option>
                              
                              <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=price-desc">Giá giảm dần</option>
-                             
-                             <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=view">Lượt xem</option>
-                             
-                             <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=rating">Đánh giá</option>
-                             
+                                                          
                              <option value="<?php echo get_site_url(null,'wp-admin/custom-ajax.php',null); ?>?action=timkiembyattribute&amp;action_type=get-product-category&amp;category_id=<?php echo $category_id; ?>&amp;pc_part_id=55008-30%2C54098-31&amp;sort=name">Tên A-&gt;Z</option>
                              
                          </select>
@@ -908,7 +867,7 @@ die();//bắt buộc phải có khi kết thúc
  
                  <div class="list-product-select">
  
-                 <?php echo "aaaaaa";
+                 <?php 
                     while ( $query->have_posts() ) : $query->the_post();
                     ?>
                     <div class="p-item">
