@@ -1,0 +1,105 @@
+2020-12-07T00:15:36+00:00 CRITICAL Uncaught Error: Call to undefined function get_attribute() in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php:770
+Stack trace:
+#0 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(287): timkiem('')
+#1 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 /Volumes/MACDATA/tulegaming/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /Volumes/MACDATA/tulegaming/wp-admin/custom-ajax.php(175): do_action('wp_ajax_timkiem')
+#4 {main}
+  thrown in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 770
+
+2020-12-07T00:18:04+00:00 CRITICAL Uncaught Error: Call to undefined function get_attribute() in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php:770
+Stack trace:
+#0 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(287): timkiem('')
+#1 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 /Volumes/MACDATA/tulegaming/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /Volumes/MACDATA/tulegaming/wp-admin/custom-ajax.php(175): do_action('wp_ajax_timkiem')
+#4 {main}
+  thrown in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 770
+
+2020-12-07T00:25:09+00:00 CRITICAL Uncaught Error: Call to a member function get_attribute() on null in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php:176
+Stack trace:
+#0 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(287): loadpost_init('')
+#1 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 /Volumes/MACDATA/tulegaming/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /Volumes/MACDATA/tulegaming/wp-admin/custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 176
+
+2020-12-07T00:25:42+00:00 CRITICAL Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 176
+
+2020-12-07T00:29:45+00:00 CRITICAL syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 177
+
+2020-12-07T00:30:09+00:00 CRITICAL Uncaught Error: Call to a member function get_attribute() on null in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php:176
+Stack trace:
+#0 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(287): loadpost_init('')
+#1 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 /Volumes/MACDATA/tulegaming/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /Volumes/MACDATA/tulegaming/wp-admin/custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 176
+
+2020-12-07T00:34:42+00:00 CRITICAL Uncaught Error: Call to a member function get_attribute() on null in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php:175
+Stack trace:
+#0 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(287): loadpost_init('')
+#1 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 /Volumes/MACDATA/tulegaming/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /Volumes/MACDATA/tulegaming/wp-admin/custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 175
+
+2020-12-07T00:39:46+00:00 CRITICAL Uncaught Error: Call to a member function get_attribute() on null in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php:176
+Stack trace:
+#0 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(287): loadpost_init('')
+#1 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 /Volumes/MACDATA/tulegaming/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /Volumes/MACDATA/tulegaming/wp-admin/custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 176
+
+2020-12-07T00:41:19+00:00 CRITICAL Uncaught Error: Call to a member function get_attribute() on null in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php:176
+Stack trace:
+#0 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(287): loadpost_init('')
+#1 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 /Volumes/MACDATA/tulegaming/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /Volumes/MACDATA/tulegaming/wp-admin/custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 176
+
+2020-12-07T00:42:00+00:00 CRITICAL Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 176
+
+2020-12-07T00:42:31+00:00 CRITICAL Uncaught Error: Call to a member function get_attribute() on null in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php:176
+Stack trace:
+#0 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(287): loadpost_init('')
+#1 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 /Volumes/MACDATA/tulegaming/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /Volumes/MACDATA/tulegaming/wp-admin/custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 176
+
+2020-12-07T00:45:33+00:00 CRITICAL Uncaught Error: Call to undefined function get_attribute() in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php:773
+Stack trace:
+#0 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(287): timkiem('')
+#1 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 /Volumes/MACDATA/tulegaming/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /Volumes/MACDATA/tulegaming/wp-admin/custom-ajax.php(175): do_action('wp_ajax_timkiem')
+#4 {main}
+  thrown in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 773
+
+2020-12-07T00:47:50+00:00 CRITICAL Uncaught Error: Call to undefined function get_the_sku() in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php:171
+Stack trace:
+#0 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(287): loadpost_init('')
+#1 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 /Volumes/MACDATA/tulegaming/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /Volumes/MACDATA/tulegaming/wp-admin/custom-ajax.php(175): do_action('wp_ajax_loadpos...')
+#4 {main}
+  thrown in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 171
+
+2020-12-07T00:51:42+00:00 CRITICAL Uncaught Error: Call to undefined function get_attribute() in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php:961
+Stack trace:
+#0 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(287): timkiembyattribute('')
+#1 /Volumes/MACDATA/tulegaming/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#2 /Volumes/MACDATA/tulegaming/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /Volumes/MACDATA/tulegaming/wp-admin/custom-ajax.php(175): do_action('wp_ajax_timkiem...')
+#4 {main}
+  thrown in /Volumes/MACDATA/tulegaming/wp-content/themes/flatsome/functions.php on line 961
+

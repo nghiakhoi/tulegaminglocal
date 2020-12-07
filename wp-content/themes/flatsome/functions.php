@@ -155,6 +155,7 @@ function loadpost_init() {
 
                     <?php
                     while ( $query->have_posts() ) : $query->the_post();
+                    $product = wc_get_product( get_the_ID() );
                     ?>
                     <div class="p-item">
                         <a href="<?php echo get_permalink(); ?>" class="p-img">
@@ -168,12 +169,15 @@ function loadpost_init() {
                             <table>
                                 <tbody><tr>
                                     <td width="80">Mã SP:</td>
-                                    <td>RAAV178</td>
+                                    <td><?php echo $product->get_sku() ; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Bảo hành:</td>
                                     <td><?php 
-                                    echo array_shift(woocommerce_get_product_terms(get_the_ID(), 'pa_bao-hanh', 'names')); //$product->get_attribute( 'pa_bao-hanh' ); //echo get_attribute('pa_bao-hanh')?></td>
+                                    $baohanh = ( is_product() && has_term( get_the_ID(), 'pa_bao-hanh' ))? array_shift(woocommerce_get_product_terms(get_the_ID(), 'pa_bao-hanh', 'names')) : "Không bảo hành";
+                                    
+                                    echo $baohanh ;
+                                    ?></td>
                                 </tr>
                                 <tr>
                                     <td valign="top">Kho hàng: </td>
@@ -192,7 +196,7 @@ function loadpost_init() {
                                     </td>
                                 </tr>
                             </tbody></table>
-                            <span class="p-price"><?php $product = wc_get_product( get_the_ID() ); echo number_format( $product->get_price() , 0, '', '.'); ?> đ</span>
+                            <span class="p-price"><?php  echo number_format( $product->get_price() , 0, '', '.'); ?> đ</span>
                         </div>
 
                         
@@ -749,7 +753,7 @@ function timkiem() {
                     <?php
                     foreach($posts as $value){
                         echo $value->post_name;
-                    
+                        $product = wc_get_product( $value->ID );
                     ?>
                     <div class="p-item">
                         <a href="<?php echo get_site_url(null,'/product/'.$value->post_name,null); ?>" class="p-img">
@@ -763,11 +767,15 @@ function timkiem() {
                             <table>
                                 <tbody><tr>
                                     <td width="80">Mã SP:</td>
-                                    <td>RAAV178</td>
+                                    <td><?php echo $product->get_sku() ; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Bảo hành:</td>
-                                    <td><?php echo get_attribute('pa_bao-hanh')?></td>
+                                    <td><?php 
+                                    $baohanh = ( is_product() && has_term( get_the_ID(), 'pa_bao-hanh' ))? array_shift(woocommerce_get_product_terms(get_the_ID(), 'pa_bao-hanh', 'names')) : "Không bảo hành";
+                                    
+                                    echo $baohanh ;
+                                    ?></td>
                                 </tr>
                                 <tr>
                                     <td valign="top">Kho hàng:</td>
@@ -780,7 +788,7 @@ function timkiem() {
                                     </td>
                                 </tr>
                             </tbody></table>
-                            <span class="p-price"><?php $product = wc_get_product( $value->ID ); echo number_format( $product->get_price() , 0, '', '.'); ?> đ</span>
+                            <span class="p-price"><?php  echo number_format( $product->get_price() , 0, '', '.'); ?> đ</span>
                         </div>
 
                         
@@ -932,6 +940,7 @@ die();//bắt buộc phải có khi kết thúc
  
                  <?php 
                     while ( $query->have_posts() ) : $query->the_post();
+                    $product = wc_get_product( get_the_ID() );
                     ?>
                     <div class="p-item">
                         <a href="<?php echo get_permalink(); ?>" class="p-img">
@@ -945,11 +954,15 @@ die();//bắt buộc phải có khi kết thúc
                             <table>
                                 <tbody><tr>
                                     <td width="80">Mã SP:</td>
-                                    <td>RAAV178</td>
+                                    <td><?php echo $product->get_sku() ; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Bảo hành:</td>
-                                    <td><?php echo get_attribute('pa_bao-hanh')?></td>
+                                    <td><?php 
+                                    $baohanh = ( is_product() && has_term( get_the_ID(), 'pa_bao-hanh' ))? array_shift(woocommerce_get_product_terms(get_the_ID(), 'pa_bao-hanh', 'names')) : "Không bảo hành";
+                                    
+                                    echo $baohanh ;
+                                    ?></td>
                                 </tr>
                                 <tr>
                                     <td valign="top">Kho hàng:</td>
@@ -962,7 +975,7 @@ die();//bắt buộc phải có khi kết thúc
                                     </td>
                                 </tr>
                             </tbody></table>
-                            <span class="p-price"><?php $product = wc_get_product( get_the_ID() ); echo number_format( $product->get_price() , 0, '', '.'); ?> đ</span>
+                            <span class="p-price"><?php  echo number_format( $product->get_price() , 0, '', '.'); ?> đ</span>
                         </div>
 
                         
